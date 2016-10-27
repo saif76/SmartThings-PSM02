@@ -222,6 +222,9 @@ def configure() {
         // Wake up every hour
         zwave.wakeUpV1.wakeUpIntervalSet(seconds: 1 * 3600, nodeid:zwaveHubNodeId).format(),
         
+	//Set PIR Sensitivity
+	zwave.configurationV1.configurationSet(parameterNumber: 3, size: 1, scaledConfigurationValue: 70).format(),	
+		
         // Get PIR sensitivity
         zwave.configurationV1.configurationGet(parameterNumber: 3).format()
     ])
